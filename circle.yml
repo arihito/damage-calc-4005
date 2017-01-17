@@ -1,3 +1,7 @@
 machine:
   node:
     version: 7.3.0
+test
+  override:
+    - mkdir -p $circle_test_reports/mocha
+    - mocha_file=$circle_test_reports/mocha/junit.xml node_modules/.bin/mocha test --reporter mocha-junit-reporter
